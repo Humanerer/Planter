@@ -1,0 +1,51 @@
+<html>
+    <title> Register </title>
+    <nav class="nav">
+        <a href="/home">Home</a>
+        <a href="/allposts">All Posts</a>
+        {% if signed == True %}
+        <a href="/myplants">My Plants</a>
+        <a href="/logout">Log out</a>
+        {% endif %}
+        {% if signed != True %}
+        <a href="/signin">Sign in</a>
+        <a href="/register">Register</a>
+        {% endif %}
+        <form action="/searchposts" method="POST">
+            <a><input type="text" name="searchKey" placeholder="Search posts"></a>
+            <a><input type="submit" value="Search"></button></a>
+        </form>
+    </nav>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: rgb(239, 255, 239);
+            color: rgb(48, 78, 48);
+        }
+
+        .nav {
+        overflow: hidden;
+        background-color: rgb(43, 95, 51);
+        }
+
+        .nav a {
+        float: left;
+        color: #80eeae;
+        text-align: center;
+        padding: 1%;
+        text-decoration: none;
+        font-size: 150%;
+        }
+    </style>
+    <body>
+        <head> Register </head>
+        <form action="/register/validate" method="POST">
+            <p> Username </p>
+            <input autocomplete="off" type="text" name="username" required />
+            <p><input type="submit" value="Register" /></p>
+        </form>
+        {% if userInUse %}
+        <p> Username is already in use </p>
+        {% endif %}
+    </body>
+</html>

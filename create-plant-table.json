@@ -1,0 +1,15 @@
+{
+    "TableName": "Plant",
+    "KeySchema": [
+      { "AttributeName": "Username", "KeyType": "HASH" },
+      { "AttributeName": "Plantname", "KeyType": "RANGE" }
+    ],
+    "AttributeDefinitions": [
+      { "AttributeName": "Username", "AttributeType": "S" },
+      { "AttributeName": "Plantname", "AttributeType": "S" }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 5,
+      "WriteCapacityUnits": 5
+    }
+}
